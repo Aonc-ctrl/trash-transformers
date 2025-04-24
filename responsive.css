@@ -5,7 +5,7 @@
       }
     
       .side-left .illustration {
-        max-width: 400px;
+        width: 400px;
       }
 
 }
@@ -21,7 +21,7 @@
 
     .input-group {
     position: relative;
-    margin-bottom: 1.5rem; /* Adiciona espaçamento abaixo de cada input-group */
+    margin-bottom: 1.5rem; 
     }
   }
   

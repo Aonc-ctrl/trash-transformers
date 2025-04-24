@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login – Trash Transformers</title>
   <link rel="icon" href="Logo Trash Transformers SEM FUNDO.png" type="image/png">
+  <link rel="stylesheet" href="responsive.css">
 
   <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
 
   <style>
-    :root {
+     :root {
       --green-light:   #7ed957;
       --green-light2:  #aec6b3;
       --green-dark:    #0c8e55;
@@ -31,7 +32,7 @@
       width: 90%;
       max-width: 1600px;
       height: 90vh;
-      margin: 5vh auto;  
+      margin: 5vh auto;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
@@ -44,35 +45,19 @@
       overflow: hidden;
     }
     .side-left .illustration {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 350px;
-      height: auto;
+      width: 100%;           /* ocupa 100% do container */
+  max-width: 550px;      /* limita o tamanho máximo */
+  height: auto;          /* mantém proporção */
+  display: block;
+  margin: 1.5rem auto 0;
     }
-    .side-left .info {
-      position: absolute;
-      top: 50%;
-      left: 350px;
-      transform: translateY(-50%);
-      max-width: 500px;
-      padding: 0 1rem;
-    }
+
     .side-left h1 {
       position: absolute;
       top: 15%;
       left: 15%;
       font-family: 'League Spartan', sans-serif;
-      font-size: 4rem;
-    }
-    .side-left .info h2 {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-    .side-left .info p {
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 4rem; /* Tamanho base para telas maiores */
     }
 
     /* === LADO DIREITO (painel branco) === */
@@ -150,15 +135,7 @@
     <!-- Painel colorido -->
     <div class="side-left">
       <h1>Trash Transformers</h1>
-      <img src="Velhinho reciclando.png" alt="Ilustração sustentabilidade" class="illustration">
-      <div class="info">
-        <h2>Quem somos nós?</h2>
-        <p>
-          Somos estudantes da UNAMA envolvidos no projeto Ser Recicla, que une educação, tecnologia 
-          e sustentabilidade. Criamos soluções digitais para incentivar a coleta e o registro de 
-          resíduos recicláveis, promovendo um futuro mais consciente.
-        </p>
-      </div>
+      <img class="teste" src="Velhinho reciclando.png" alt="Ilustração sustentabilidade" class="illustration">
     </div>
 
     <!-- Painel branco -->

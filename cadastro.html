@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cadastro – Trash Transformers</title>
   <link rel="icon" href="Logo Trash Transformers SEM FUNDO.png" type="image/png">
-  <link rel="stylesheet" href="responsive.css">
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
 
   <style>
@@ -140,6 +139,36 @@
       color: #2f5bb7;
       text-decoration: none;
     }
+
+    /* RESPONSIVIDADE DA PÁGINA */
+
+    @media (max-width: 880px) {
+    .side-left h1 {
+        font-size: 3.8rem;
+        left: 6%;
+      }
+    
+      .side-left .illustration {
+        width: 400px;
+      }
+
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+      }
+
+    .side-left {
+        display: none;
+    }
+
+    .input-group {
+    position: relative;
+    margin-bottom: 1.5rem; 
+    }
+  }
+  
   </style>
 </head>
 <body>

@@ -167,17 +167,45 @@
     const form = document.getElementById('loginForm');
     const btn  = document.getElementById('loginBtn');
     const inputs = Array.from(form.querySelectorAll('input'));
-
+  
     inputs.forEach(i =>
       i.addEventListener('input', () => {
         btn.disabled = !inputs.every(f => f.value.trim() !== '');
       })
     );
-
-    form.addEventListener('submit', e => {
+  
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      alert('Login realizado com sucesso!');
+  
+      const matricula = document.getElementById('matricula').value;
+      const senha = document.getElementById('senha').value;
+  
+      const dadosLogin = {
+        matricula: matricula,
+        senha: senha
+      };
+  
+      try {
+        const resposta = await fetch('http://localhost:8080/usuarios/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(dadosLogin)
+        });
+  
+        if (resposta.ok) {
+          const usuario = await resposta.json();
+          alert('Login realizado com sucesso!');
+        } else {
+          alert('Matrícula ou senha incorretos.');
+        }
+      } catch (erro) {
+        console.error('Erro ao tentar fazer login:', erro);
+        alert('Erro ao conectar com o servidor.');
+      }
     });
   </script>
+  
 </body>
 </html>

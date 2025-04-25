@@ -6,8 +6,6 @@
   <title>Cadastro – Trash Transformers</title>
   <link rel="icon" href="Logo Trash Transformers SEM FUNDO.png" type="image/png">
   <link rel="stylesheet" href="responsive.css">
-
-  <!-- Fontes -->
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Open+Sans:wght@600&display=swap" rel="stylesheet">
 
   <style>
@@ -34,7 +32,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
-    /* === Painel Colorido (esquerda) === */
     .side-left {
       flex: 3;
       position: relative;
@@ -56,10 +53,7 @@
       transform: translateX(-50%);
       width: 550px;
       height: auto;
-}
-
-
-
+    }
     .side-left .info {
       position: absolute;
       top: 50%;
@@ -78,7 +72,6 @@
       line-height: 1.6;
     }
 
-    /* === Painel Branco (direita) === */
     .side-right {
       flex: 2;
       background: #fff;
@@ -208,7 +201,35 @@
 
     form.addEventListener('submit', e => {
       e.preventDefault();
-      alert('Usuário cadastrado com sucesso!');
+
+      const dados = {
+        nome: form.nome.value,
+        email: form.email.value,
+        matricula: form.matricula.value,
+        senha: form.senha.value
+      };
+
+      fetch('http://localhost:3000/usuarios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dados)
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('Erro ao cadastrar usuário.');
+        return res.json();
+      })
+      .then(data => {
+        console.log('Cadastro feito:', data);
+        alert('Usuário cadastrado com sucesso!');
+        form.reset();
+        btn.disabled = true;
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Erro ao cadastrar usuário.');
+      });
     });
   </script>
 </body>
